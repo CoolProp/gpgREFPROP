@@ -20,4 +20,4 @@ which generates the encrypted file ``REFPROP.zip.gpg``. Generate an uncrackable 
 
 ## Actions setup
 
-Add a repository secret called ``REFPROP_GPG_PASSPHRASE`` in github actions with the contents of the password you generated in the previous step. The action in this repository will test the decryption and print out the contents of the zip file.
+Add a repository secret called ``REFPROP_GPG_PASSPHRASE`` in github actions with the contents of the password you generated in the previous step. The action in this repository will test the decryption and print out the contents of the zip file, as well as building a shared library based on the sources in the encrypted zip
