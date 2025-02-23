@@ -7,7 +7,7 @@ unzip REFPROP.zip -d REFPROP
 
 apt-get -y -m update && DEBIAN_FRONTEND=noninteractive apt-get install -y cmake g++ dos2unix
 
-git clone https://github.com/usnistgov/REFPROP-cmake
+git clone --recursive https://github.com/usnistgov/REFPROP-cmake
 cd REFPROP-cmake
 cmake -B bld -S . -DCMAKE_BUILD_TYPE=Release -DREFPROP_FORTRAN_PATH=`pwd`/../REFPROP/FORTRAN
 cmake --build bld --config Release 
