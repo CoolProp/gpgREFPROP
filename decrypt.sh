@@ -5,7 +5,7 @@
 gpg --quiet --batch --yes --decrypt --passphrase="$REFPROP_GPG_PASSPHRASE" --output REFPROP.zip REFPROP.zip.gpg
 unzip REFPROP.zip -d REFPROP 
 
-apt-get -y -m update && DEBIAN_FRONTEND=noninteractive apt-get install -y cmake g++ dos2unix
+apt-get -y -m update && DEBIAN_FRONTEND=noninteractive apt-get install -y cmake g++ dos2unix python3-numpy
 
 git clone --recursive https://github.com/usnistgov/REFPROP-cmake
 cd REFPROP-cmake
