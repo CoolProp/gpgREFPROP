@@ -26,4 +26,13 @@ jobs:
         ls REFPROP
       env:
           REFPROP_GPG_PASSPHRASE: ${{ secrets.REFPROP_GPG_PASSPHRASE }}
+          
+    - name: Test building of REFPROP shared library
+      shell: bash
+      run: |
+        chmod +x decrypt.sh 
+        ./decrypt.sh 
+        
+      env:
+          REFPROP_GPG_PASSPHRASE: ${{ secrets.REFPROP_GPG_PASSPHRASE }}
         
