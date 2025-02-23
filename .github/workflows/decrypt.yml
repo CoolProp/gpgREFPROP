@@ -22,6 +22,8 @@ jobs:
       run: |
         set -x
         gpg --quiet --batch --yes --decrypt --passphrase="$REFPROP_GPG_PASSPHRASE" --output REFPROP.zip REFPROP.zip.gpg
+        unzip REFPROP.zip -d REFPROP 
+        ls REFPROP
       env:
           REFPROP_GPG_PASSPHRASE: ${{ secrets.REFPROP_GPG_PASSPHRASE }}
         
