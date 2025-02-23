@@ -1,0 +1,27 @@
+name: Testing decryption
+
+on:
+  push:
+    branches: [ 'main']
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ 'main']
+  #schedule:
+  #  - cron: '15 8 * * 3' # Run weekly
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Test decryption of zip
+      shell: bash
+      run: |
+        set -x
+        gpg --quiet --batch --yes --decrypt --passphrase="$REFPROP_GPG_PASSPHRASE" --output REFPROP.zip REFPROP.zip.gpg
+      env:
+          REFPROP_GPG_PASSPHRASE: ${{ secrets.REFPROP_GPG_PASSPHRASE }}
+        
