@@ -12,11 +12,13 @@ choco install gpg4win
 
 ## Encryption
 
+Choose your passphrase and place in the ``passphrase`` file. Perhaps auto-generated.
+
 Execute:
 ```
-gpg --symmetric --cipher-algo AES256 REFPROP.zip
+gpg --passphrase `cat passphrase` -c --symmetric --cipher-algo AES256 --batch REFPROP.zip
 ```
-which generates the encrypted file ``REFPROP.zip.gpg``. Generate an uncrackable password, and store that password somewhere safe. That will be used to decrypt the source
+which generates the encrypted file ``REFPROP.zip.gpg``. 
 
 ## Actions setup
 
