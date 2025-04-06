@@ -12,6 +12,8 @@ git clone --recursive https://github.com/usnistgov/REFPROP-cmake
 cd REFPROP-cmake
 cmake -B bld -S . -DCMAKE_BUILD_TYPE=Release -DREFPROP_FORTRAN_PATH=`pwd`/../FORTRAN
 cmake --build bld --config Release 
+cp -r `pwd`/../FLUIDS bld
+cp -r `pwd`/../MIXTURES bld
 
 pip install ctREFPROP
-COOLPROP_REFPROP_ROOT=`pwd`/REFPROPungpg/REFPROP-cmake/bld python test_REFPROP.py
+COOLPROP_REFPROP_ROOT=`pwd`/bld python ../../test_REFPROP.py
